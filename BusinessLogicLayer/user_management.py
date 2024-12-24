@@ -5,9 +5,6 @@
 # @Software: PyCharm
 # @Blog    ：
 from urllib.parse import urlencode
-
-import requests
-
 from BusinessLogicLayer.login import Login
 
 
@@ -15,8 +12,8 @@ class UserManagement(Login):
     def __init__(self):
         super().__init__()
 
-    def get_user_list(self, pageSize=10, pageIndex=1, userName="", empName=""):
-        url = "http://localhost:8080/WoniuBoss/user/queryUser"
+    def get_user_list(self, pageSize=10, pageIndex=1, userName='', empName=''):
+        url = self.host + "user/queryUser"
         payload = urlencode(
             {
                 "pageSize": pageSize,
@@ -29,7 +26,7 @@ class UserManagement(Login):
             'Content-Type': 'application/x-www-form-urlencoded',
         }
         response = self.session.post( url, headers=headers, data=payload)
-        print(response.text)
+        return response
 
 
 if __name__ == '__main__':

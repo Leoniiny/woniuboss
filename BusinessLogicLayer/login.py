@@ -5,13 +5,17 @@
 # @Software: PyCharm
 # @Blog    ：
 # @Description:后台用户登录
-
 import requests
+from utils.DoYaml import DoYaml
+
 
 class Login:
+
     def __init__(self, userName="WNCD000",userPass="woniu123",checkcode="0000",remember="Y"):
+        env = DoYaml().read_yaml()["test"]
+        self.host = env["url"]
         self.session = requests.session()
-        url = "http://localhost:8080/WoniuBoss/login/userLogin"
+        url = self.host + "login/userLogin"
         payload = {
             "userName": userName,
             "userPass": userPass,

@@ -1,0 +1,10 @@
+case01:
+  -
+    pageSize: 10
+    pageIndex: 1
+    userName: WNCD000
+    empName: ''
+  - pageSize: 10
+    pageIndex: 1
+    userName: ''
+    empName: 测试
